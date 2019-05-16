@@ -5,6 +5,7 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 // const bodyparser = require('koa-bodyparser')
 // const logger = require('koa-logger')
+const static = require('koa-static')
 const koaBody = require('koa-body')
 
 const routers = require('./routes/index')
@@ -21,7 +22,8 @@ app.use(koaBody({
 }))
 app.use(json())
 // app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
+app.use(static(__dirname + '/public'))
+// app.use(static(__dirname + '/screenshot'))
 
 app.use(views(__dirname + '/views', {
   extension: 'ejs'
